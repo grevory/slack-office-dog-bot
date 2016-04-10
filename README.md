@@ -47,7 +47,7 @@ heroku login
 ### Deploy the Bot
 ```bash
 git add .
-git commit -am "Initial commite"
+git commit -am "Initial commit"
 heroku create --stack cedar
 heroku push heroku master
 ```
