@@ -17,8 +17,6 @@ Frisket is based on [Ein](https://github.com/jorydotcom/einbot "Original Ein Git
 Download a copy of the project. Open a terminal and change directory to where you wish to store the project.
 ```bash
 git clone https://github.com/grevory/slack-office-dog-bot.git
-```
-```bash
 cd slack-office-dog-bot
 ```
 
@@ -49,14 +47,8 @@ heroku login
 ### Deploy the Bot
 ```bash
 git add .
-```
-```bash
 git commit -am "Initial commite"
-```
-```bash
 heroku create --stack cedar
-```
-```bash
 heroku push heroku master
 ```
 
