@@ -15,30 +15,50 @@ Frisket is based on [Ein](https://github.com/jorydotcom/einbot "Original Ein Git
 
 ### Installation
 Download a copy of the project. Open a terminal and change directory to where you wish to store the project.
-`https://github.com/grevory/slack-office-dog-bot.git`
-`cd slack-office-dog-bot`
+```bash
+git clone https://github.com/grevory/slack-office-dog-bot.git
+```
+```bash
+cd slack-office-dog-bot
+```
 
 Install the projects dependecies
-`npm install`
+```bash
+npm install
+```
 
 Test that Hubot is functioning as expected
-`bin/hubot`
+```bash
+bin/hubot
+```
 
 If it worked you should see "slacky> [Date]". There may be some errors and warnings but they may not be of consequence. Feel free to play with Hubot here.
-`slacky> slacky help`
+```bash
+slacky> slacky help
+```
 
 Exit out of Hubot (CTRL / CMD + C)
 
 ### Setup Server
 
 If you are not already logged into Heroku on the command line
-`heroku login`
+```bash
+heroku login
+```
 
 ### Deploy the Bot
-`git add .`
-`git commit -am "Initial commite"`
-`heroku create --stack cedar`
-`heroku push heroku master`
+```bash
+git add .
+```
+```bash
+git commit -am "Initial commite"
+```
+```bash
+heroku create --stack cedar
+```
+```bash
+heroku push heroku master
+```
 
 This will return the domain of your bot as hosted on Heroku. You will need to use this URL to wake your bot.
 
@@ -50,15 +70,21 @@ Create a username for your bot. Might we recommend "@frisket"? Upload your photo
 
 Copy the API Token and go back to your terminal window.
 
-`heroku config:set HUBOT_SLACK_TOKEN=xoxb-1234567890-XXXXXXXXXXXXXXXXXXX`
+```bash
+heroku config:set HUBOT_SLACK_TOKEN=xoxb-1234567890-XXXXXXXXXXXXXXXXXXX
+```
 
 Get the URL of your bot in case you forgot it.
 
-`heroku apps:info`
+```bash
+heroku apps:info
+```
 
 To keep your bot from going to sleep
 
-`heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=xxx-yyyy.herokuapp.com`
+```bash
+heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=xxx-yyyy.herokuapp.com
+```
 
 ## Troubleshooting
 
