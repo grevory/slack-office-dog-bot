@@ -1,9 +1,9 @@
 {
-  "name": "ein",
+  "name": "Frisket the Slack Office Dog Bot",
   "version": "0.0.0",
   "private": true,
-  "author": "Jory Burson <jory@bocoup>",
-  "description": "ein the office dog joins bocoup's slack channel in bot form",
+  "author": "Gregory Pike <greg@gregpike.ca>",
+  "description": "Frisket is a Slack chat bot that listens to your conversations on Slack and responds or reacts like a dog",
   "dependencies": {
     "hubot": "2.17.0",
     "hubot-appearin": "^1.0.2",

@@ -75,8 +75,12 @@ heroku apps:info
 To keep your bot from going to sleep
 
 ```bash
+heroku addons:create scheduler:standard
 heroku config:set HUBOT_HEROKU_KEEPALIVE_URL=xxx-yyyy.herokuapp.com
+heroku addons:open scheduler
 ```
+
+This will open a dashboard to manage the scheduling. For the command enter `curl ${HUBOT_HEROKU_KEEPALIVE_URL}heroku/keepalive` and set the reset of the inputs as you like.
 
 ## Troubleshooting
 
