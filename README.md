@@ -49,7 +49,7 @@ heroku login
 git add .
 git commit -am "Initial commit"
 heroku create --stack cedar
-heroku push heroku master
+git push heroku master
 ```
 
 This will return the domain of your bot as hosted on Heroku. You will need to use this URL to wake your bot.
