@@ -1,5 +1,5 @@
 {
-  "name": "Frisket the Slack Office Dog Bot",
+  "name": "slack-office-dog-bot",
   "version": "0.0.0",
   "private": true,
   "author": "Gregory Pike <greg@gregpike.ca>",
