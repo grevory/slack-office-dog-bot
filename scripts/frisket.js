@@ -37,7 +37,7 @@ console.log(1, item.pattern, RegExp(item.pattern).test(message), item.specificit
     });
 console.log(2, bestMatch);
     if (!_.isEmpty(bestMatch)) {
-      return res[bestMatch.pattern](bestMatch.message);
+      return res[bestMatch.response](bestMatch.message);
     }
 
   });
