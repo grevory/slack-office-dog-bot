@@ -32,10 +32,24 @@ module.exports = function(robot) {
     },
     {
       listener: 'hear',
-      response: 'reply',
+      response: 'send',
       pattern: 'play dead',
       message: ':fearful:',
       specificity: 100
+    },
+    {
+      listener: 'hear',
+      response: 'send',
+      pattern: 'high five',
+      message: ':raised_hands:',
+      specificity: 50
+    },
+    {
+      listener: 'hear',
+      response: 'reply',
+      pattern: 'food|treat|walk',
+      message: '%s? Yes please!',
+      specificity: 50
     }
   ];
 
@@ -61,6 +75,9 @@ module.exports = function(robot) {
       if (_.isArray(message)) {
         message = _.sample(message);
       }
+      // if (message.indexOf('%s') >= 0) {
+        message = message.replace(RegExp(bestMatch.pattern), '$1');
+      // }
       return res[bestMatch.response](message);
     }
 
