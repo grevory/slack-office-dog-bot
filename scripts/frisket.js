@@ -34,6 +34,10 @@ module.exports = function(robot) {
       }
     });
 
+    if (bestMatch) {
+      return res[bestMatch.pattern](bestMatch.message);
+    }
+
   });
   // robot.hear(/who's a good boy/i, function(res) {
   //   return res.send(":doge:");
