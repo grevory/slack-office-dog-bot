@@ -2,19 +2,39 @@ module.exports = function(robot) {
 
   var _ = require('lodash');
 
+  var excitedEmotes = [
+    'wags tail',
+    'pants',
+    'uses puppy eyes'
+  ];
+
   var map = [
     {
       listener: 'hear',
       response: 'send',
-      pattern: 'marco',
-      message: 'Yolo!',
+      pattern: 'speak|talk',
+      message: ['Woof!', 'Arf'],
       specificity: 10
     },
     {
       listener: 'hear',
       response: 'send',
-      pattern: 'marco polo',
-      message: 'Cool!',
+      pattern: 'good boy|good dog|good girl',
+      message: '',
+      specificity: 50
+    },
+    {
+      listener: 'hear',
+      response: 'send',
+      pattern: 'play',
+      message: ':tennis:',
+      specificity: 10
+    },
+    {
+      listener: 'hear',
+      response: 'reply',
+      pattern: 'play dead',
+      message: ':fearful:',
       specificity: 100
     }
   ];
@@ -24,35 +44,25 @@ module.exports = function(robot) {
 
   return robot.hear(/(.*)/i, function(res) {
     
-    var message = res.match[1];
+    var post = res.match[1];
     var bestMatch = {};
-console.log(0, message);
+    var message = '';
+
     _.forEach(map, function(item){
-console.log(1, item.pattern, RegExp(item.pattern).test(message), item.specificity > _.toInteger(bestMatch.specificity), item.specificity, _.toInteger(bestMatch.specificity));
-      if (RegExp(item.pattern).test(message)) {
+      if (RegExp(item.pattern).test(post)) {
         if (item.specificity > _.toInteger(bestMatch.specificity)) {
           bestMatch = item;
         }
       }
     });
-console.log(2, bestMatch);
+
     if (!_.isEmpty(bestMatch)) {
-      return res[bestMatch.response](bestMatch.message);
+      message = bestMatch.message;
+      if (_.isArray(message)) {
+        message = _.sample(message);
+      }
+      return res[bestMatch.response](message);
     }
 
   });
-  // robot.hear(/who's a good boy/i, function(res) {
-  //   return res.send(":doge:");
-  // });
-  // robot.hear(/you're a dog/i, function(res) {
-  //   return res.send("PANTPANTPANT");
-  // });
-  // robot.respond(/sit/i, function(res) {
-  //   return res.reply("give me a treat");
-  // });
-  // return robot.hear(/I like (.*)/i, function(res) {
-  //   var likedThing;
-  //   likedThing = res.match[1];
-  //   return res.emote("fetches " + likedThing);
-  // });
 };
