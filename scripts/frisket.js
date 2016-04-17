@@ -28,7 +28,7 @@ module.exports = function(robot) {
     var bestMatch = {};
 console.log(0, message);
     _.forEach(map, function(item){
-console.log(1, item.pattern, RegExp(item.pattern).test(message), item.specificity > _.toInteger(bestMatch.specificity)), item.specificity, _.toInteger(bestMatch.specificity)));
+console.log(1, item.pattern, RegExp(item.pattern).test(message), item.specificity > _.toInteger(bestMatch.specificity), item.specificity, _.toInteger(bestMatch.specificity));
       if (RegExp(item.pattern).test(message)) {
         if (item.specificity > _.toInteger(bestMatch.specificity)) {
           bestMatch = item;
