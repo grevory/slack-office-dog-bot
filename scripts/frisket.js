@@ -26,14 +26,16 @@ module.exports = function(robot) {
     
     var message = res.match[1];
     var bestMatch = {};
+console.log(0, message);
     _.forEach(map, function(item){
+console.log(1, item.pattern, RegExp(item.pattern).test(message));
       if (RegExp(item.pattern).test(message)) {
         if (item.specificity > bestMatch.specificity) {
           bestMatch = item;
         }
       }
     });
-
+console.log(2, bestMatch);
     if (bestMatch) {
       return res[bestMatch.pattern](bestMatch.message);
     }
