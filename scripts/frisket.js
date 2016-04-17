@@ -6,14 +6,14 @@ module.exports = function(robot) {
     {
       listener: 'hear',
       response: 'send',
-      pattern: /marco/i,
+      pattern: 'marco',
       message: 'Yolo!',
       specificity: 10
     },
     {
       listener: 'hear',
       response: 'send',
-      pattern: /marco polo/i,
+      pattern: 'marco polo',
       message: 'Cool!',
       specificity: 100
     }
@@ -29,14 +29,14 @@ module.exports = function(robot) {
 console.log(0, message);
     _.forEach(map, function(item){
 console.log(1, item.pattern, RegExp(item.pattern).test(message));
-      if (RegExp(item.pattern).test(message)) {
+      if (RegExp(item.pattern, 'i').test(message)) {
         if (item.specificity > bestMatch.specificity) {
           bestMatch = item;
         }
       }
     });
 console.log(2, bestMatch);
-    if (bestMatch) {
+    if (!_.isEmpty(bestMatch)) {
       return res[bestMatch.pattern](bestMatch.message);
     }
 
