@@ -49,6 +49,13 @@ module.exports = function(robot) {
       response: 'reply',
       pattern: 'food|treat|walk',
       message: '%s? Yes please!',
+      specificity: 40
+    },
+    {
+      listener: 'response',
+      response: 'reply',
+      pattern: 'nap',
+      message: ':zzz:',
       specificity: 50
     }
   ];
@@ -75,9 +82,9 @@ module.exports = function(robot) {
       if (_.isArray(message)) {
         message = _.sample(message);
       }
-      // if (message.indexOf('%s') >= 0) {
+      if (message.indexOf('%s') >= 0) {
         message = message.replace('%s', post.match(bestMatch.pattern)[0]);
-      // }
+      }
       return res[bestMatch.response](message);
     }
 
