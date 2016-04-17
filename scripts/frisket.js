@@ -76,7 +76,7 @@ module.exports = function(robot) {
         message = _.sample(message);
       }
       // if (message.indexOf('%s') >= 0) {
-        message = message.replace(RegExp('('+bestMatch.pattern+')'), '$1');
+        message = message.replace('%s', message.match(bestMatch.pattern)[0]);
       // }
       return res[bestMatch.response](message);
     }
